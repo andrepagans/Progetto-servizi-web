@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteRule ^nuovo-libro$ create.php [L]
+RewriteRule ^modifica-libro$ update.php [L]
+RewriteRule ^elimina-libro$ delete.php [L]
+RewriteRule ^visualizza-libri$ read.php [L]
+RewriteRule ^visualizza-libro/([0-9]+)$ read.php?id=$1 [L]

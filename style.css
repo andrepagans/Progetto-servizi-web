@@ -1,0 +1,74 @@
+  #form-container,
+  #modifica-form-container {
+      display: none;
+      margin-top: 20px;
+  }
+
+  .auth-body {
+      display: flex;
+      justify-content: center;
+  }
+
+  .auth-form {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+  }
+
+  .auth-form>input {
+      margin-bottom: 20px;
+  }
+
+  .view-copies-body,
+  .view-copies-html {
+      height: 100%;
+      margin: 0;
+  }
+
+  .view-copies-bg {
+      background-image: url('img/libri-home.jpg');
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .view-copies-overlay {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      padding: 20px;
+      width: 100%;
+      max-width: 500px;
+  }
+
+  .view-copies-navbar-brand {
+      font-weight: bold;
+  }
+
+  .view-copies-text-center {
+      color: #343a40;
+  }
+
+  body.custom-bg {
+    background-color: #baad9d; 
+}
+
+.body-doc {
+    padding-top: 70px;
+}
+pre code {
+    display: block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: .25rem;
+}
+
+.mt-5-doc{
+    margin-top: 5px !important;
+    margin-bottom: 10px;
+}

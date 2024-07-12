@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentazione API Biblioteca Online</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="body-doc">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand view-copies-navbar-brand" >Biblioteca Online</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="crud/index.php">Elenco Libri</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="apidoc.html">Documentazione</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="mt-5-doc">Documentazione API Biblioteca Online</h1>
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">API Create (Inserimento di un nuovo libro)</h2>
+                <p class="card-text">Endpoint: <code>/nuovo-libro</code></p>
+                <p class="card-text">Richiesta: POST con i seguenti parametri:</p>
+                <ul>
+                    <li><code>titolo</code> (stringa): Titolo del libro</li>
+                    <li><code>autore</code> (stringa): Autore del libro</li>
+                    <li><code>genere</code> (stringa): Genere del libro</li>
+                    <li><code>data_di_pubblicazione</code> (data): Data di pubblicazione del libro</li>
+                    <li><code>copie_disponibili</code> (numero intero): Copie disponibili del libro</li>
+                </ul>
+                <h3>Esempio di utilizzo:</h3>
+                <pre><code>POST /nuovo-libro
+{
+    "titolo": "Il Nome della Rosa",
+    "autore": "Umberto Eco",
+    "genere": "Storico",
+    "data_di_pubblicazione": "1980-09-01",
+    "copie_disponibili": 5
+}</code></pre>
+                <h3>Esempio di risposta:</h3>
+                <pre><code>{
+    "messaggio": "Libro inserito con successo",
+    "response": 1
+}</code></pre>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">API Read (Visualizzazione dei libri)</h2>
+                <p class="card-text">Endpoint: <code>/visualizza-libri</code></p>
+                <p class="card-text">Richiesta: GET senza parametri</p>
+                <h3>Esempio di utilizzo:</h3>
+                <pre><code>GET /visualizza-libri</code></pre>
+                <h3>Esempio di risposta:</h3>
+                <pre><code>[
+    {
+        "id": 1,
+        "titolo": "Il Nome della Rosa",
+        "autore": "Umberto Eco",
+        "genere": "Storico",
+        "data_di_pubblicazione": "1980-09-01",
+        "copie_disponibili": 5
+    },
+    {
+        "id": 2,
+        "titolo": "1984",
+        "autore": "George Orwell",
+        "genere": "Distopico",
+        "data_di_pubblicazione": "1949-06-08",
+        "copie_disponibili": 3
+    }
+]</code></pre>
+                <h3>Visualizzazione di un libro specifico:</h3>
+                <p class="card-text">Endpoint: <code>/visualizza-libro/{id}</code></p>
+                <h3>Esempio di utilizzo:</h3>
+                <pre><code>GET /visualizza-libro/1</code></pre>
+                <h3>Esempio di risposta:</h3>
+                <pre><code>{
+    "id": 1,
+    "titolo": "Il Nome della Rosa",
+    "autore": "Umberto Eco",
+    "genere": "Storico",
+    "data_di_pubblicazione": "1980-09-01",
+    "copie_disponibili": 5
+}</code></pre>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">API Update (Modifica delle copie disponibili di un libro)</h2>
+                <p class="card-text">Endpoint: <code>/modifica-libro</code></p>
+                <p class="card-text">Richiesta: PUT con i seguenti parametri:</p>
+                <ul>
+                    <li><code>id</code> (numero intero): ID del libro da modificare</li>
+                    <li><code>copie_disponibili</code> (numero intero): Nuovo numero di copie disponibili</li>
+                </ul>
+                <h3>Esempio di utilizzo:</h3>
+                <pre><code>PUT /modifica-libro
+{
+    "id": 1,
+    "copie_disponibili": 10
+}</code></pre>
+                <h3>Esempio di risposta:</h3>
+                <pre><code>{
+    "messaggio": "Libro modificato con successo",
+    "response": 1
+}</code></pre>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">API Delete (Eliminazione di un libro)</h2>
+                <p class="card-text">Endpoint: <code>/elimina-libro</code></p>
+                <p class="card-text">Richiesta: DELETE con il parametro:</p>
+                <ul>
+                    <li><code>id</code> (numero intero): ID del libro da eliminare</li>
+                </ul>
+                <h3>Esempio di utilizzo:</h3>
+                <pre><code>DELETE /elimina-libro
+{
+    "id": 1
+}</code></pre>
+                <h3>Esempio di risposta:</h3>
+                <pre><code>{
+    "messaggio": "Libro eliminato con successo",
+    "response": 1
+}</code></pre>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
